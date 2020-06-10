@@ -34,7 +34,7 @@ This part might take several hours.
 
 #### Run the ProtoryNet 
 
-Now, you just open ``` ProtoryNet.ipynb ``` to get the results and the prototypes. It just takes ~ 30 mins to finish the training and collect the results.
+Now, you just open ``` ProtoryNet.ipynb ``` to get the results and the prototypes. It just takes ~ 30 mins to finish the training and collect the results. Enjoy!
 
 To fully reproduce the Amazon review results in the paper, please just run again with the large data file ``` amazon_reviews.csv```. This might take several hours on Google Colab.
 
