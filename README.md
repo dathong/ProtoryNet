@@ -58,11 +58,16 @@ A link to a downloadable version of the dataset or simulation environment. **In 
 For new data collected, a complete description of the data collection process, such as instructions to annotators and methods for quality control. **Included in Appendix**
 
 9. ML Reproducibility -- Code
+
 Training code **ProtoryNet.ipynb, will upload ProSeNet later**
+
 Evaluation code **ProtoryNet.ipynb, will upload ProSeNet later**
+
 Pre-trained model(s) **Too big to upload right now, will upload later**
+
 README file includes table of results accompanied by precise command to run to produce those results. **Yes**
-Specification of dependencies
+Specification of dependencies**Yes**
+
 10. ML Reproducibility -- Experimental Results
 
 The range of hyper-parameters considered, method to select the best hyper-parameter configuration, and specification of all hyper-parameters used to generate results. **In the paper and in the code**
