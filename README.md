@@ -42,15 +42,15 @@ p/s: Quick requirements check from NeurIPS 2020:
 
 8. ML Reproducibility -- Datasets
 
-The relevant statistics, such as number of examples. #### Yes
+The relevant statistics, such as number of examples. ** Yes **
 
-The details of train / validation / test splits. #### 5-fold cv
+The details of train / validation / test splits. ** 5-fold cv **
 
-An explanation of any data that were excluded, and all pre-processing step. #### Included in Appendix
+An explanation of any data that were excluded, and all pre-processing step. ** Included in the Appendix **
 
-A link to a downloadable version of the dataset or simulation environment.#### In this github respository (Amazon reviews)
+A link to a downloadable version of the dataset or simulation environment. ** In this github respository (Amazon reviews) **
 
-For new data collected, a complete description of the data collection process, such as instructions to annotators and methods for quality control.#### Included in Appendix
+For new data collected, a complete description of the data collection process, such as instructions to annotators and methods for quality control. ** Included in Appendix **
 
 9. ML Reproducibility -- Code
 Training code #### ProtoryNet.ipynb
