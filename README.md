@@ -39,6 +39,7 @@ To fully reproduce the Amazon review results in the paper, please just run again
 For any questions, please feel free to contact me (Dat Hong) at dat-hong@uiowa.edu
 
 
+---------End of instructions------------
 
 
 
