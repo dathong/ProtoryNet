@@ -80,6 +80,6 @@ A description of results with central tendency (e.g. mean) & variation (e.g. err
 
 A description of the computing infrastructure used. **This works on Colab too. Will update further information if neccesary.**
 
-The average runtime for each result, or estimated energy cost. **Included in the read-me file. Will update later if neccesary**
+The average runtime for each result, or estimated energy cost. **Included in the read-me file. Will update further if neccesary**
 
-For any questions, please feel free to contact me (Dat Hong) at dat-hong@uiowa.edu
+
