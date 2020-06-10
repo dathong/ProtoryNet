@@ -30,6 +30,8 @@ and this to generate ```train_vects```:
 python gen_sent_embeds.py
 ```
 
+This part might take several hours.
+
 #### Run the ProtoryNet 
 
 Now, you just open ``` ProtoryNet.ipynb ``` to get the results and the prototypes. It just takes ~ 30 mins to finish the training and collect the results.
