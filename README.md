@@ -38,7 +38,11 @@ To fully reproduce the Amazon review results in the paper, please just run again
 
 For any questions, please feel free to contact me (Dat Hong) at dat-hong@uiowa.edu
 
-#### p/s: Quick requirements check from NeurIPS 2020:
+
+
+
+
+#### P/S: Quick requirements check from NeurIPS 2020:
 
 8. ML Reproducibility -- Datasets
 
@@ -65,9 +69,11 @@ The range of hyper-parameters considered, method to select the best hyper-parame
 The exact number of training and evaluation runs. **In the paper and in the code**
 
 A clear definition of the specific measure or statistics used to report results. **In the paper**
+
 A description of results with central tendency (e.g. mean) & variation (e.g. error bars). **In the paper**
+
 A description of the computing infrastructure used. **This works on Colab too. Will update further information if neccesary.**
+
 The average runtime for each result, or estimated energy cost. **Included in the read-me file. Will update later if neccesary**
 
-For any questions, please feel free to contact me (Dat Hong) at dat-hong@uiowa.eduqQ
 For any questions, please feel free to contact me (Dat Hong) at dat-hong@uiowa.edu
