@@ -30,7 +30,7 @@ and this to generate ```train_vects```:
 python gen_sent_embeds.py
 ```
 
-### Run the ProtoryNet 
+#### Run the ProtoryNet 
 
 Now, you just open ``` ProtoryNet.ipynb ``` to get the results and the prototypes.
 
