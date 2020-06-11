@@ -1,6 +1,6 @@
 # ProtoryNet
 
-Welcome to the respository of ProtoryNet.
+Welcome to the repository of ProtoryNet.
 
 To run the code from this respository, you need Python 3.6 (or higher) and Tensorflow 1.15 (or higher). Other common libraries such as Numpy, Pandas, ... are available in Anaconda3. Otherwise they must be installed. 
 
