@@ -1,6 +1,6 @@
 # ProtoryNet: Interpretable Text Classification Via Prototype Trajectory
 
-Welcome to the repository of ProtoryNet. This repository is the official implementation of the paper 
+Welcome to the repository of ProtoryNet. This repository is the official implementation of the paper https://arxiv.org/pdf/2007.01777.pdf
 
 
 
