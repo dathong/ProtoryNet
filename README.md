@@ -11,7 +11,7 @@ To see a quick result, please just copy the "train.csv" file into your Colab dir
 
 Please note that this notebook is for non-finetuning. For finetuning, we provide another notebook, which run on Tensorflow 2.x
 
-#### Requirement
+#### Requirements
 
 To run the code from this repository, you need Python 3.6 (or higher) and Tensorflow 1.15 (or higher). Other common libraries such as Numpy, Pandas, ... are available in Anaconda3. Otherwise they must be installed. 
 
