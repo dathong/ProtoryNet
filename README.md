@@ -2,8 +2,6 @@
 
 Welcome to the repository of ProtoryNet. This repository is the official implementation of the paper https://arxiv.org/pdf/2007.01777.pdf
 
-
-
 To help you with a quick start, we provide a small subset from Amazon review dataset called ```train.csv```. The larger dataset ```amazon_reviews.csv``` to help reproduce the results in the paper. We provided a "run through" Google Colab ipython notebook to generate the quick result.
 
 ## Quick start
@@ -27,7 +25,7 @@ We provided the code for training and evaluating in the notebook.
 
 ## Results
 
-For the sample dataset, the result should be ~ 83-84%. If you run on the "amazon_reviews.csv" file, the result should be ~ 86-87%, as reported in the paper.
+For the sample dataset, the result should be ~ 83-84%. If you want to reproduce the result in the paper, run on the "amazon_reviews.csv" file.
 
 
 
