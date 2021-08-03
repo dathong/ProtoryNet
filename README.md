@@ -25,7 +25,7 @@ We provided the code for training and evaluating in the notebook.
 
 ## Results
 
-For the sample dataset, the result should be ~ 83-84%. If you want to reproduce the result in the paper, run on the "amazon_reviews.csv" file.
+For the sample dataset, the result should be ~ 83-84%. If you want to reproduce the result in the paper (non-fine tuning), run on the "amazon_reviews.csv" file.
 
 
 
