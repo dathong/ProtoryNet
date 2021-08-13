@@ -2,7 +2,7 @@
 
 Welcome to the repository of ProtoryNet. This repository is the official implementation of the paper https://arxiv.org/pdf/2007.01777.pdf
 
-To help you with a quick start, we provided a "run through" Google Colab ipython notebook to generate the quick result for Hotel dataset. 
+To help you with a quick start, we provided a "run through" Google Colab ipython notebook to generate the quick result for Hotel dataset. The notebook is located at example/ProtoryNet_example.ipynb
 
 ## Quick start
 To see a quick result, please just download the respository and run the "example/ProtoryNet.ipynb" notebook from the top to the bottom. The notebook will do all the steps, from pre-processing the data, transforming sentences into vectors, etc., to training the model, and generating K prototoypes, where K is set to 10 in the example. It should take less than 30 minutes to generate the results.
