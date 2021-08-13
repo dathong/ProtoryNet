@@ -46,7 +46,7 @@ To train the model, run:
 ```
 pNet.train(x_train,y_train,x_test,y_test)
 ```
-with input parameters are the training and test datasets & labels respectively.
+with input parameters are the training and test examples & labels respectively.
 
 To evaluate the model, run:
 ```
