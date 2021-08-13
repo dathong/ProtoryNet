@@ -55,7 +55,7 @@ pNet.evaluate(x_test,y_test)
 
 ## Results
 
-For the hotel dataset, the result should be ~ 0.959-0.961% . 
+For the hotel dataset, the accuracy should be ~ 0.959-0.961% . 
 
 
 
