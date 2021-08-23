@@ -282,7 +282,7 @@ class ProtoryNet:
 
     # generate the sentence value for each prototype
     # and 10 closest sentences to it
-    def prototypeInterpretation(self,sample_sentences,sample_sent_vects,k_protos=10):
+    def showPrototypes(self,sample_sentences,sample_sent_vects,k_protos=10):
         new_protos = self.projection(sample_sent_vects)
         data_size = 10000
         d_pos = {}
