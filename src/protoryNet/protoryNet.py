@@ -41,7 +41,7 @@ class ProtoryNet:
                 distances = tf.reduce_sum(tmp4, axis=3)
                 return distances, self.prototypes
 
-        #Distance layer: to convert the full distance matrix to sparse similarity matrix
+        #distance layer: to convert the full distance matrix to sparse similarity matrix
         class distanceLayer(keras.layers.Layer):
             def __init__(self):
                 super(distanceLayer, self).__init__(name='distance_layer')
@@ -58,7 +58,7 @@ class ProtoryNet:
                 dist_hot_vect = min_dist_ind * e_dist
                 return dist_hot_vect
 
-        #Customized model
+        #customized model
         class CustomModel(keras.Model):
 
             @tf.function
