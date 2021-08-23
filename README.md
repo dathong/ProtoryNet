@@ -67,7 +67,7 @@ To show the mapped sentences of the prototypes, run
 pNet.prototypeInterpretation(sample_sentences,sample_sent_vect)
 ```
 with ```samples_sentences``` and ```sample_sent_vect``` are the text and vector values of the sentence sample respectively.
-```
+
 To save the model manually, run:
 ```
 pNet.saveModel(name)
