@@ -58,27 +58,27 @@ pNet.evaluate(x_test,y_test)
 For the hotel dataset, the accuracy should be ~ 0.95-0.96%.
 
 ## Additional methods
-To project the prototypes to the closest sentences (in a sample set of sententences called ```sample_sent_vect```), run:
+* To project the prototypes to the closest sentences (in a sample set of sententences called ```sample_sent_vect```), run:
 ```
 new_protos = pNet.projection(sample_sent_vect)
 ```
-To show the mapped sentences of the prototypes, run
+* To show the mapped sentences of the prototypes, run
 ```
 pNet.prototypeInterpretation(sample_sentences,sample_sent_vect)
 ```
 with ```samples_sentences``` and ```sample_sent_vect``` are the text and vector values of the sentence sample respectively.
 
-To save the model manually, run:
+* To save the model manually, run:
 ```
 pNet.saveModel(name)
 ```
 with ```name``` is the name of the model.
 
-To see the number of closest sentences to each prototype, use:
+* To see the number of closest sentences to each prototype, use:
 ```
 pNet.protoFreq(sample_sent_vect)
 ```
-To re-train the model with the new pruned prototypes, run:
+* To re-train the model with the new pruned prototypes, run:
 ```
 pNet.pruningTrain(new_k_protos=2,x_train,y_train,x_test,y_test)
 ```
