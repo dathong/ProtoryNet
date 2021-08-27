@@ -8,6 +8,9 @@ import operator
 
 class ProtoryNet:
 
+    def __init__(self):
+        self.mappedPrototype = {}
+
     #create the ProtoryNet:
     # inputs:
     ##+k_cents: the initialized values of prototypes. In the paper, we used KMedoids clustering
@@ -151,14 +154,20 @@ class ProtoryNet:
         auxModel1 = keras.Model(inputs=model.input,
                                 outputs=distLayer.output)
 
+        auxModel2 = keras.Model(inputLayer, z)
+
         # auxOutput = auxModel(l1)
         model.auxModel = auxModel
         model.auxModel1 = auxModel1
-
+        self.auxModel2 = auxModel2
+        self.embModel = keras.Model(inputLayer,l2)
         model.summary()
 
         self.model = model
         return model
+
+    def embed(self,input):
+        return self.embModel.predict(input)
 
     #Evalute the model performance on validation set
     def evaluate(self,x_valid, y):
@@ -227,7 +236,7 @@ class ProtoryNet:
 
     #this method simple project prototypes to the closest sentences in
     #sample_sent_vects
-    def projection(self,sample_sent_vects,data_size=10000):
+    def projection(self,sample_sentences,sample_sent_vects,data_size=10000):
         self.prototypes = self.proto_layer.prototypes.numpy()
         d_pos = {}
         #for each prototype
@@ -237,7 +246,7 @@ class ProtoryNet:
             d_pos[p_count] = {}
             #find its distances to all sample sentences
             for i, s in enumerate(sample_sent_vects[:data_size]):
-                if len(sample_sent_vects[i]) < 5:
+                if len(sample_sentences[i]) < 5 or len(sample_sentences[i]) > 100:
                     continue
                 d_pos[p_count][i] = np.linalg.norm(sample_sent_vects[i] - p)
                 s_count += 1
@@ -250,9 +259,46 @@ class ProtoryNet:
         self.prototypes = new_protos
         return new_protos
 
+    #show the list of prototypes
+    def showPrototypes(self,sample_sentences,sample_sent_vects,k_protos=10,printOutput=False):
+        self.mappedPrototypes = {}
+        new_protos = self.projection(sample_sentences,sample_sent_vects)
+        data_size = 10000
+        d_pos = {}
+        for p_count, p in enumerate(new_protos):
+            print('p_count = ', p_count)
+            s_count = 0
+            d_pos[p_count] = {}
+            for i, s in enumerate(sample_sent_vects[:data_size]):
+                if len(sample_sentences[i]) < 5 or len(sample_sentences[i]) > 100:
+                    continue
+                d_pos[p_count][i] = np.linalg.norm(sample_sent_vects[i] - p)
+                s_count += 1
+            print('count = ', s_count)
+
+        k_closest_sents = 10
+        recorded_protos_score = {}
+        print("Prototypes: ")
+        for l in range(k_protos):
+            # print("prototype index = ", l)
+            recorded_protos_score[l] = {}
+            sorted_d = sorted(d_pos[l].items(), key=operator.itemgetter(1))
+            for k in range(k_closest_sents):
+                i = sorted_d[k][0]
+                # print("[db] sorted_d ",sorted_d[0])
+                # print("[db] sample_sentences[sorted_d[0][0]]: ",sample_sentences[sorted_d[0][0]])
+                self.mappedPrototypes[l] = sample_sentences[sorted_d[0][0]].strip()
+                if printOutput:
+                    print(sorted_d[k], sample_sentences[i])
+            print(self.mappedPrototypes[l])
+
     #method to manually save the model
     def saveModel(self,name):
         self.model.save_weights(name + ".h5")
+
+    #return the vector value of the input sentence
+    def embed(self,input):
+        return self.embModel.predict(input)
 
     #method to generate the number of closest sentences to each prototype
     def protoFreq(self,sample_sent_vect):
@@ -282,29 +328,38 @@ class ProtoryNet:
 
     # generate the sentence value for each prototype
     # and 10 closest sentences to it
-    def showPrototypes(self,sample_sentences,sample_sent_vects,k_protos=10):
-        new_protos = self.projection(sample_sent_vects)
-        data_size = 10000
-        d_pos = {}
-        for p_count, p in enumerate(new_protos):
-            print('p_count = ', p_count)
-            s_count = 0
-            d_pos[p_count] = {}
-            for i, s in enumerate(sample_sent_vects[:data_size]):
-                if len(sample_sentences[i]) < 5:
-                    continue
-                d_pos[p_count][i] = np.linalg.norm(sample_sent_vects[i] - p)
-                s_count += 1
-            print('count = ', s_count)
+    def showTrajectory(self,input,sample_sentences,sample_vect):
+        if len(self.mappedPrototypes) == 0:
+            self.showPrototypes(sample_sentences,sample_vect,printOutput=False)
+        prototypes = [self.mappedPrototypes[k].strip() for k in self.mappedPrototypes]
+        vP, vS = self.embed(prototypes), self.embed(input)
+        dStoP = {}
+        for sCount, s in enumerate(vS):
+            dStoP[sCount] = {}
+            for i, p in enumerate(vP):
+                dStoP[sCount][i] = np.linalg.norm(vS[sCount] - p)
 
-        k_closest_sents = 10
-        recorded_protos_score = {}
-        for l in range(k_protos):
-            print("prototype index = ", l)
-            recorded_protos_score[l] = {}
-            sorted_d = sorted(d_pos[l].items(), key=operator.itemgetter(1))
-            for k in range(k_closest_sents):
-                i = sorted_d[k][0]
-                print(sorted_d[k], sample_sentences[i])
+        mappedProtos, mappedScore, mappedDist = [], [], []
+        for sCount, s in enumerate(vS):
+            sorted_d = sorted(dStoP[sCount].items(), key=operator.itemgetter(1))
+            mappedProtos.append(prototypes[sorted_d[0][0]])
+
+        #for small dataset, we use a pretrained sentiment model. We can use any
+        #model for sentiment scores
+        from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+        sid_obj = SentimentIntensityAnalyzer()
+        print("[db] mappedProtos ", mappedProtos)
+        scores = []
+        for s in mappedProtos:
+            # sentiment_dict = sid_obj.polarity_scores(s)
+            scores.append(0.5 + sid_obj.polarity_scores(s)['compound'] / 2)
+        return scores
+
+    #predict the sentiment score of any input string
+    def predict(self,input):
+        return self.model.predict(input)
+
+
+
 
 
