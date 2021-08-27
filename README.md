@@ -58,13 +58,19 @@ pNet.evaluate(x_test,y_test)
 For the hotel dataset, the accuracy should be ~ 0.95-0.96%.
 
 ## Additional methods
+
+Examples of all of those methods are provided in the example notebook ```example/ProtoryNet_example.ipynb```
+* To predict the sentiment score of any input text, use:
+```
+pNet.predict(input)
+```
 * To project the prototypes to the closest sentences (in a sample set of sententences called ```sample_sent_vect```), run:
 ```
 new_protos = pNet.projection(sample_sent_vect)
 ```
 * To show the mapped sentences of the prototypes, run
 ```
-pNet.prototypeInterpretation(sample_sentences,sample_sent_vect)
+pNet.showPrototypes(sample_sentences,sample_sent_vect)
 ```
 with ```samples_sentences``` and ```sample_sent_vect``` are the text and vector values of the sentence sample respectively.
 
@@ -83,6 +89,11 @@ pNet.protoFreq(sample_sent_vect)
 pNet.pruningTrain(new_k_protos=2,x_train,y_train,x_test,y_test)
 ```
 Here, ```new_k_protos``` is the number of pruned prototypes.
+
+* To generate the trajectory of any input text, use:
+```
+pNet.showTrajectory(testS,sample_sentences,sample_sent_vect)
+```
 
 
 
