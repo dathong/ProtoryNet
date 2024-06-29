@@ -1,6 +1,6 @@
 # ProtoryNet: Interpretable Text Classification Via Prototype Trajectory
 
-Welcome to the repository of ProtoryNet. This repository is the official implementation of the paper https://arxiv.org/pdf/2007.01777.pdf
+Welcome to the repository of ProtoryNet. This repository is the official implementation of the paper [ProtoryNet - Interpretable Text Classification Via Prototype Trajectories](https://www.jmlr.org/papers/v24/21-0899.html)
 
 To help you with a quick start, we provided a "run through" Google Colab ipython notebook to generate the quick result for Hotel dataset. The notebook is located at example/ProtoryNet_example.ipynb
 
